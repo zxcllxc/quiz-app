@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #0B0D12;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        .logo {
+            border-radius: 33px;
+            width: 70px;
+        }
+
+        .otherpages {
+            display: flex;
+            gap: 25px;
+        }
+
+        a {
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 60px 40px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-bottom: 25px;
+        }
+
+        #categories {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        #categories li {
+            padding: 20px 30px;
+            border: 1px solid #333;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logoDiv">
+            <img class="logo" src="" alt="">
+        </div>
+
+        <div class="otherpages">
+            <a href="index.html">Home</a>
+            <a href="leaderboard.html">Leaderboard</a>
+        </div>
+
+        <div>
+            <button>Get Started</button>
+        </div>
+    </header>
+
+    <main>
+        <h1>QuizPulse</h1>
+        <h2>Choose a category</h2>
+
+        <ul id="categories"></ul>
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
