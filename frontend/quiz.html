@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuizFlow</title>
+
+    <link rel="stylesheet" href="quiz.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            <span class="logo-icon">Q</span>
+            <span>QuizFlow</span>
+        </div>
+
+        <div class="progress-text">
+            Question
+            <span id="questionNumber">1</span>
+            /
+            <span id="totalQuestions">3</span>
+        </div>
+
+    </header>
+
+
+    <main class="quiz-container">
+
+        <div class="quiz-card">
+
+            <div class="category">
+                WEB DEVELOPMENT
+            </div>
+
+            <h1 id="question">
+                Loading...
+            </h1>
+
+
+            <div id="answers" class="answers">
+            </div>
+
+
+            <div class="bottom">
+
+                <p id="selectedInfo" class="selected-info">
+                    Choose an answer
+                </p>
+
+                <button id="nextBtn" class="next-btn" disabled>
+                    Next →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Result -->
+        <div id="result" class="result-card hidden">
+
+            <div class="result-icon">
+                ✓
+            </div>
+
+            <h2>Quiz completed!</h2>
+
+            <p>
+                You answered all questions.
+            </p>
+
+            <div class="result-info">
+
+                <span>Answers:</span>
+
+                <strong id="resultAnswers">
+                    0
+                </strong>
+
+            </div>
+
+            <button id="restartBtn" class="restart-btn">
+                Restart Quiz
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="quiz.js"></script>
+
+</body>
+
+</html>
