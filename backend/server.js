@@ -3,8 +3,7 @@ import express from "express";
 const app = express();
 
 app.use(express.json());
-app.use(express.static("frontend"));
-
+app.use(express.static("../frontend"));
 
 const quizzes = [
   {
@@ -37,7 +36,7 @@ app.get("/api/quizzes", (req, res) => {
 
   if (categoryId) {
     const filteredQuizzes = quizzes.filter(
-      (quiz) => quiz.categoryId === Number(categoryId)
+      (quiz) => quiz.categoryId === Number(categoryId),
     );
 
     return res.json(filteredQuizzes);
@@ -51,7 +50,7 @@ app.get("/api/quizzes/:id", (req, res) => {
   const quiz = quizzes.find((quiz) => quiz.id === id);
 
   if (!quiz) {
-    return res.status(404).json({ message: "Quiz not found" });
+    return res.status(404).json({ error: "Quiz not found" });
   }
 
   res.json(quiz);
