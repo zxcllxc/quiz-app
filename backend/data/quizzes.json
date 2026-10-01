@@ -3,41 +3,37 @@
     "id": 1,
     "categoryId": 1,
     "title": "JavaScript Basics",
+    "timeLimitSec": 120,
     "questions": [
       {
         "id": 1,
-        "question": "What does const create in JavaScript?",
-        "options": ["A variable", "A constant binding", "A function", "A loop"],
-        "correctAnswer": 1
+        "text": "typeof null?",
+        "options": ["null", "object", "undefined", "number"],
+        "correctIndex": 1
       },
       {
         "id": 2,
-        "question": "Which keyword is used to create a function?",
-        "options": ["function", "func", "def", "method"],
-        "correctAnswer": 0
+        "text": "Which keyword declares a constant?",
+        "options": ["let", "var", "const", "static"],
+        "correctIndex": 2
       },
       {
         "id": 3,
-        "question": "Which method converts JSON text into a JavaScript object?",
-        "options": [
-          "JSON.stringify()",
-          "JSON.parse()",
-          "JSON.object()",
-          "JSON.convert()"
-        ],
-        "correctAnswer": 1
+        "text": "Which method converts JSON text into an object?",
+        "options": ["JSON.parse()", "JSON.stringify()", "JSON.object()", "JSON.convert()"],
+        "correctIndex": 0
       },
       {
         "id": 4,
-        "question": "Which symbol is used for strict equality?",
+        "text": "Which symbol is used for strict equality?",
         "options": ["=", "==", "===", "!="],
-        "correctAnswer": 2
+        "correctIndex": 2
       },
       {
         "id": 5,
-        "question": "Which array method adds an item to the end?",
+        "text": "Which array method adds an item to the end?",
         "options": ["pop()", "push()", "shift()", "slice()"],
-        "correctAnswer": 1
+        "correctIndex": 1
       }
     ]
   },
@@ -45,36 +41,37 @@
     "id": 2,
     "categoryId": 2,
     "title": "SQL Basics",
+    "timeLimitSec": 120,
     "questions": [
       {
-        "id": 1,
-        "question": "Which command is used to get data from a table?",
+        "id": 6,
+        "text": "Which command is used to get data from a table?",
         "options": ["GET", "SELECT", "FETCH", "READ"],
-        "correctAnswer": 1
+        "correctIndex": 1
       },
       {
-        "id": 2,
-        "question": "Which SQL keyword filters rows?",
+        "id": 7,
+        "text": "Which SQL keyword filters rows?",
         "options": ["WHERE", "FILTER", "IF", "CHECK"],
-        "correctAnswer": 0
+        "correctIndex": 0
       },
       {
-        "id": 3,
-        "question": "Which keyword sorts query results?",
+        "id": 8,
+        "text": "Which keyword sorts query results?",
         "options": ["SORT BY", "ORDER BY", "GROUP BY", "ARRANGE BY"],
-        "correctAnswer": 1
+        "correctIndex": 1
       },
       {
-        "id": 4,
-        "question": "Which constraint uniquely identifies each row?",
+        "id": 9,
+        "text": "Which constraint uniquely identifies each row?",
         "options": ["FOREIGN KEY", "UNIQUE", "PRIMARY KEY", "INDEX"],
-        "correctAnswer": 2
+        "correctIndex": 2
       },
       {
-        "id": 5,
-        "question": "Which command adds a new column to an existing table?",
+        "id": 10,
+        "text": "Which command adds a new column to an existing table?",
         "options": ["ALTER TABLE", "UPDATE TABLE", "ADD TABLE", "CHANGE TABLE"],
-        "correctAnswer": 0
+        "correctIndex": 0
       }
     ]
   }

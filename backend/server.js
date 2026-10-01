@@ -46,7 +46,7 @@ app.get("/api/quizzes/:id", (req, res) => {
 
   const quizWithoutAnswers = {
     ...quiz,
-    questions: quiz.questions.map(({ correctAnswer, ...question }) => question),
+    questions: quiz.questions.map(({ correctIndex, ...question }) => question),
   };
 
   res.json(quizWithoutAnswers);
