@@ -1,0 +1,76 @@
+[
+  {
+    "id": 1,
+    "categoryId": 1,
+    "title": "JavaScript Basics",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does const create in JavaScript?",
+        "options": ["A variable", "A constant binding", "A function", "A loop"],
+        "correctAnswer": 1
+      },
+      {
+        "id": 2,
+        "question": "Which keyword is used to create a function?",
+        "options": ["function", "func", "def", "method"],
+        "correctAnswer": 0
+      },
+      {
+        "id": 3,
+        "question": "Which method converts JSON text into a JavaScript object?",
+        "options": ["JSON.stringify()", "JSON.parse()", "JSON.object()", "JSON.convert()"],
+        "correctAnswer": 1
+      },
+      {
+        "id": 4,
+        "question": "Which symbol is used for strict equality?",
+        "options": ["=", "==", "===", "!="],
+        "correctAnswer": 2
+      },
+      {
+        "id": 5,
+        "question": "Which array method adds an item to the end?",
+        "options": ["pop()", "push()", "shift()", "slice()"],
+        "correctAnswer": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "categoryId": 2,
+    "title": "SQL Basics",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Which command is used to get data from a table?",
+        "options": ["GET", "SELECT", "FETCH", "READ"],
+        "correctAnswer": 1
+      },
+      {
+        "id": 2,
+        "question": "Which SQL keyword filters rows?",
+        "options": ["WHERE", "FILTER", "IF", "CHECK"],
+        "correctAnswer": 0
+      },
+      {
+        "id": 3,
+        "question": "Which keyword sorts query results?",
+        "options": ["SORT BY", "ORDER BY", "GROUP BY", "ARRANGE BY"],
+        "correctAnswer": 1
+      },
+      {
+        "id": 4,
+        "question": "Which constraint uniquely identifies each row?",
+        "options": ["FOREIGN KEY", "UNIQUE", "PRIMARY KEY", "INDEX"],
+        "correctAnswer": 2
+      },
+      {
+        "id": 5,
+        "question": "Which command adds a new column to an existing table?",
+        "options": ["ALTER TABLE", "UPDATE TABLE", "ADD TABLE", "CHANGE TABLE"],
+        "correctAnswer": 0
+      }
+    ]
+  }
+]
