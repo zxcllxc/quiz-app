@@ -1,22 +1,13 @@
 import express from "express";
+import fs from "fs";
 
 const app = express();
 
 app.use(express.json());
 app.use(express.static("../frontend"));
 
-const quizzes = [
-  {
-    id: 1,
-    categoryId: 1,
-    title: "JavaScript Basics",
-  },
-  {
-    id: 2,
-    categoryId: 2,
-    title: "SQL Basics",
-  },
-];
+const quizzesFilePath = new URL("./data/quizzes.json", import.meta.url);
+const quizzes = JSON.parse(fs.readFileSync(quizzesFilePath, "utf-8"));
 
 app.get("/", (req, res) => {
   res.send("Server is running");
@@ -53,11 +44,14 @@ app.get("/api/quizzes/:id", (req, res) => {
     return res.status(404).json({ error: "Quiz not found" });
   }
 
-  res.json(quiz);
+  const quizWithoutAnswers = {
+    ...quiz,
+    questions: quiz.questions.map(({ correctAnswer, ...question }) => question),
+  };
+
+  res.json(quizWithoutAnswers);
 });
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
-
-

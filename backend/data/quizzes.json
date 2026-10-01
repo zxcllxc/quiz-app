@@ -19,7 +19,12 @@
       {
         "id": 3,
         "question": "Which method converts JSON text into a JavaScript object?",
-        "options": ["JSON.stringify()", "JSON.parse()", "JSON.object()", "JSON.convert()"],
+        "options": [
+          "JSON.stringify()",
+          "JSON.parse()",
+          "JSON.object()",
+          "JSON.convert()"
+        ],
         "correctAnswer": 1
       },
       {
