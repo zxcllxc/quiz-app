@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuizPulse — Leaderboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/leaderboard.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="container navbar-content">
+        <a href="index.html" class="logo">Quiz<span>Pulse</span></a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="leaderboard.html" class="active">Leaderboard</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <section class="leaderboard-header">
+        <div class="container">
+            <span class="section-label">COMPETITION</span>
+            <h1>Leaderboard</h1>
+            <p>
+                See how you compare with other players.
+                Keep playing and improve your score.
+            </p>
+        </div>
+    </section>
+
+    <section class="quiz-selection">
+        <div class="container">
+            <div class="quiz-buttons" id="quiz-buttons"></div>
+        </div>
+    </section>
+
+    <section class="ranking-section">
+        <div class="container">
+            <div class="ranking-card">
+
+                <div class="ranking-header">
+                    <div>Place</div>
+                    <div>Player</div>
+                    <div>Score</div>
+                </div>
+
+                <div id="leaderboard"></div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div class="logo">Quiz<span>Pulse</span></div>
+
+        <p>Test your knowledge. Challenge yourself.</p>
+
+        <span>© 2026 QuizPulse</span>
+    </div>
+</footer>
+
+<script src="js/leaderboard.js"></script>
+
+</body>
+</html>

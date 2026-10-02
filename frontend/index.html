@@ -3,100 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz App</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>QuizPulse — Test Your Knowledge</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            display: flex;
-            flex-direction: column;
-            background-color: #0B0D12;
-            color: white;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-        }
+<link rel="stylesheet" href="css/style.css">
 
-        header {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-        }
 
-        .logo {
-            border-radius: 33px;
-            width: 70px;
-        }
-
-        .otherpages {
-            display: flex;
-            gap: 25px;
-        }
-
-        a {
-            cursor: pointer;
-            color: white;
-            text-decoration: none;
-        }
-
-        main {
-            padding: 60px 40px;
-        }
-
-        h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            margin-bottom: 25px;
-        }
-
-        #categories {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-            padding: 0;
-        }
-
-        #categories li {
-            padding: 20px 30px;
-            border: 1px solid #333;
-            border-radius: 12px;
-        }
-    </style>
 </head>
 
 <body>
 
-    <header>
+<header class="header">
+    <div class="container nav">
+        <a href="index.html" class="logo">Quiz<span>Pulse</span></a>
 
-        <div class="otherpages">
-            <a href="index.html">Home</a>
-            <a href="leaderboard.html">Leaderboard</a>
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="leaderboard.html">Leaderboard</a>
+    </nav>
+</div>
+
+
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <div class="badge">
+                <span class="badge-dot"></span>
+                Online Quiz Platform
+            </div>
+
+            <h1>
+                Test your
+                <span>knowledge.</span>
+            </h1>
+
+            <p>
+                Choose a topic and start a quiz.
+                See your result and compare your score with other players.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#categories-section" class="hero-button">
+                    Start Quiz <span>→</span>
+                </a>
+            </div>
+
         </div>
 
-        <div>
-            <button>Get Started</button>
+        <div class="hero-card">
+            <div class="quiz-preview">
+
+                <div class="quiz-preview-top">
+                    <span>Question 4</span>
+                    <span>4 / 10</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+
+                <h3>Which language is mainly used to style web pages?</h3>
+
+                <div class="preview-option">
+                    <span>A</span>
+                    JavaScript
+                </div>
+
+                <div class="preview-option selected">
+                    <span>B</span>
+                    CSS
+                    <b>✓</b>
+                </div>
+
+                <div class="preview-option">
+                    <span>C</span>
+                    Python
+                </div>
+
+                <div class="preview-option">
+                    <span>D</span>
+                    SQL
+                </div>
+
+            </div>
         </div>
-    </header>
 
-    <main>
-        <h1>QuizPulse</h1>
-        <h2>Choose a category</h2>
+    </div>
+</section>
 
-        <ul id="categories"></ul>
-    </main>
+<section class="categories-section" id="categories-section">
+    <div class="container">
 
-    <script src="index.js"></script>
+        <div class="section-heading">
+            <span>CATEGORIES</span>
+            <h2>Choose a topic</h2>
+            <p>Try one of the available quiz categories.</p>
+        </div>
+
+        <div class="categories-grid" id="categories"></div>
+
+    </div>
+</section>
+
+
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div class="logo">Quiz<span>Pulse</span></div>
+        <p>Online quizzes for learning and fun.</p>
+        <span class="copyright">© 2026 QuizPulse</span>
+    </div>
+</footer>
+
+<script src="index.js"></script>
 
 </body>
 </html>

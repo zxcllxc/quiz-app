@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #0b0b12;
+    color: #f3f3f8;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+}
+
+.navbar {
+    height: 76px;
+    border-bottom: 1px solid #262636;
+    background: #0b0b12;
+}
+
+.navbar-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+.logo span {
+    color: #8b7bff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #9a9ab0;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #f3f3f8;
+}
+
+.nav-links .active {
+    color: #8b7bff;
+}
+
+.leaderboard-header {
+    padding: 90px 0 45px;
+    text-align: center;
+}
+
+.section-label {
+    color: #8b7bff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.leaderboard-header h1 {
+    margin-top: 12px;
+    font-size: 52px;
+    line-height: 1.1;
+    letter-spacing: -2px;
+}
+
+.leaderboard-header p {
+    max-width: 500px;
+    margin: 16px auto 0;
+    color: #9a9ab0;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.quiz-selection {
+    padding: 10px 0 35px;
+}
+
+.quiz-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.quiz-buttons button {
+    padding: 11px 18px;
+    border: 1px solid #262636;
+    border-radius: 9px;
+    background: #15151f;
+    color: #9a9ab0;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.quiz-buttons button:hover {
+    border-color: #6c5ce7;
+    color: #f3f3f8;
+    transform: translateY(-2px);
+}
+
+.quiz-buttons button.active {
+    border-color: #6c5ce7;
+    background: #6c5ce7;
+    color: #ffffff;
+}
+
+.ranking-section {
+    padding: 20px 0 110px;
+}
+
+.ranking-card {
+    overflow: hidden;
+    border: 1px solid #262636;
+    border-radius: 14px;
+    background: #15151f;
+}
+
+.ranking-header,
+.ranking-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 180px;
+    align-items: center;
+}
+
+.ranking-header {
+    min-height: 55px;
+    padding: 0 25px;
+    border-bottom: 1px solid #262636;
+    background: #1b1b28;
+    color: #9a9ab0;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.ranking-row {
+    min-height: 70px;
+    padding: 0 25px;
+    border-bottom: 1px solid #262636;
+    font-size: 13px;
+    transition: 0.2s ease;
+}
+
+.ranking-row:last-child {
+    border-bottom: none;
+}
+
+.ranking-row:hover {
+    background: #1b1b28;
+}
+
+.rank-number {
+    color: #9a9ab0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.player {
+    color: #f3f3f8;
+    font-weight: 500;
+}
+
+.score {
+    color: #8b7bff;
+    font-weight: 700;
+}
+
+#leaderboard > p {
+    padding: 45px 25px;
+    text-align: center;
+    color: #9a9ab0;
+    font-size: 14px;
+}
+
+.footer {
+    border-top: 1px solid #262636;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0;
+    color: #9a9ab0;
+    font-size: 11px;
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        height: 68px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .leaderboard-header {
+        padding: 70px 0 35px;
+    }
+
+    .leaderboard-header h1 {
+        font-size: 42px;
+    }
+
+    .ranking-header,
+    .ranking-row {
+        grid-template-columns: 70px 1fr 100px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .nav-links {
+        display: none;
+    }
+
+    .leaderboard-header h1 {
+        font-size: 36px;
+    }
+
+    .ranking-header,
+    .ranking-row {
+        grid-template-columns: 55px 1fr 85px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
