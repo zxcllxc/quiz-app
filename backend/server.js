@@ -24,16 +24,24 @@ app.get("/api/categories", (req, res) => {
 
 app.get("/api/quizzes", (req, res) => {
   const categoryId = req.query.categoryId;
+  let quizzesForList = quizzes;
 
   if (categoryId) {
-    const filteredQuizzes = quizzes.filter(
+    quizzesForList = quizzes.filter(
       (quiz) => quiz.categoryId === Number(categoryId),
     );
-
-    return res.json(filteredQuizzes);
   }
 
-  res.json(quizzes);
+  const quizList = quizzesForList.map(
+    ({ id, title, categoryId, timeLimitSec }) => ({
+      id,
+      title,
+      categoryId,
+      timeLimitSec,
+    }),
+  );
+
+  res.json(quizList);
 });
 
 app.get("/api/quizzes/:id", (req, res) => {
