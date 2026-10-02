@@ -1,9 +1,11 @@
 import express from "express";
 import fs from "fs";
+import resultsRouter from "./results.js";
 
 const app = express();
 
 app.use(express.json());
+app.use("/api", resultsRouter);
 app.use(express.static("../frontend"));
 
 const quizzesFilePath = new URL("./data/quizzes.json", import.meta.url);
