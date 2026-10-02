@@ -60,6 +60,48 @@ app.get("/api/quizzes/:id", (req, res) => {
   res.json(quizWithoutAnswers);
 });
 
+app.post("/api/quizzes/:quizId/submit", (req, res) => {
+  const quizId = Number(req.params.quizId);
+  const quiz = quizzes.find((quiz) => quiz.id === quizId);
+
+  if (!quiz) {
+    return res.status(404).json({ error: "Quiz not found" });
+  }
+
+  const answers = req.body.answers || [];
+
+  for (const answer of answers) {
+    const questionId = Number(answer.questionId);
+    const question = quiz.questions.find((question) => question.id === questionId);
+
+    if (!question) {
+      return res.status(404).json({ error: "Question not found" });
+    }
+  }
+
+  const results = answers.map((answer) => {
+    const questionId = Number(answer.questionId);
+    const userOptionIndex = Number(answer.optionIndex);
+    const question = quiz.questions.find((question) => question.id === questionId);
+
+    return {
+      questionId,
+      userOptionIndex,
+      correctOptionIndex: question.correctIndex,
+    };
+  });
+
+  const score = results.filter(
+    (result) => result.userOptionIndex === result.correctOptionIndex,
+  ).length;
+
+  res.json({
+    score,
+    total: answers.length,
+    results,
+  });
+});
+
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
