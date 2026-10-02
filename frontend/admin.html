@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizPulse — Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- admin dashboard -->
+<div class="admin-layout">
+    <aside class="sidebar">
+        <a href="index.html" class="logo">Quiz<span>Pulse</span></a>
+
+        <!-- sidebar menu -->
+        <div class="sidebar-label">MENU</div>
+        <nav class="sidebar-nav">
+            <a href="index.html"><span class="nav-icon">⌂</span>Home</a>
+            <a href="leaderboard.html"><span class="nav-icon">♛</span>Leaderboard</a>
+            <a href="admin.html" class="active"><span class="nav-icon">▦</span>Dashboard</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="admin-user">
+                <div class="user-avatar">A</div>
+                <div>
+                    <strong>Admin</strong>
+                    <span>Administrator</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="admin-main">
+        <!-- top part -->
+        <header class="topbar">
+            <div>
+                <span class="page-label">ADMIN PANEL</span>
+                <h1>Dashboard</h1>
+            </div>
+            <a href="index.html" class="view-site">View site →</a>
+        </header>
+
+        <!-- stats -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Total Questions</span>
+                    <div class="stat-icon purple">?</div>
+                </div>
+                <strong>124</strong>
+                <small>Questions in database</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Total Quizzes</span>
+                    <div class="stat-icon cyan">▣</div>
+                </div>
+                <strong>18</strong>
+                <small>Quizzes available</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Total Players</span>
+                    <div class="stat-icon green">●</div>
+                </div>
+                <strong>860</strong>
+                <small>Registered players</small>
+            </div>
+        </section>
+
+        <div class="admin-grid">
+            <!-- add question -->
+            <section class="panel question-panel">
+                <div class="panel-header">
+                    <div>
+                        <span class="panel-label">QUESTION MANAGEMENT</span>
+                        <h2>Add new question</h2>
+                    </div>
+                </div>
+
+                <form id="question-form">
+                    <div class="form-group">
+                        <label for="question">Question</label>
+                        <textarea id="question" placeholder="Enter your question..." rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category">
+                                <option value="">Select category</option>
+                                <option value="programming">Programming</option>
+                                <option value="science">Science</option>
+                                <option value="history">History</option>
+                                <option value="geography">Geography</option>
+                                <option value="general">General Knowledge</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="difficulty">Difficulty</label>
+                            <select id="difficulty">
+                                <option value="">Select difficulty</option>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="answers-section">
+                        <div class="answers-title">
+                            <label>Answer options</label>
+                            <span>Select the correct answer</span>
+                        </div>
+
+                        <label class="answer-option">
+                            <input type="radio" name="correct-answer" value="A">
+                            <span class="answer-letter">A</span>
+                            <input type="text" placeholder="Enter answer...">
+                        </label>
+
+                        <label class="answer-option">
+                            <input type="radio" name="correct-answer" value="B">
+                            <span class="answer-letter">B</span>
+                            <input type="text" placeholder="Enter answer...">
+                        </label>
+
+                        <label class="answer-option">
+                            <input type="radio" name="correct-answer" value="C">
+                            <span class="answer-letter">C</span>
+                            <input type="text" placeholder="Enter answer...">
+                        </label>
+
+                        <label class="answer-option">
+                            <input type="radio" name="correct-answer" value="D">
+                            <span class="answer-letter">D</span>
+                            <input type="text" placeholder="Enter answer...">
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="cancel-button">Clear</button>
+                        <button type="submit" class="add-button">Add Question <span>→</span></button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- recent questions -->
+            <section class="panel recent-panel">
+                <div class="panel-header">
+                    <div>
+                        <span class="panel-label">DATABASE</span>
+                        <h2>Recent questions</h2>
+                    </div>
+                    <span class="question-count">124 total</span>
+                </div>
+
+                <div class="question-list">
+                    <div class="question-item">
+                        <div class="question-info">
+                            <span class="question-category">Programming</span>
+                            <h3>What does HTML stand for?</h3>
+                            <small>Easy · 2 hours ago</small>
+                        </div>
+                        <button class="delete-button">×</button>
+                    </div>
+
+                    <div class="question-item">
+                        <div class="question-info">
+                            <span class="question-category">Science</span>
+                            <h3>What is the chemical symbol for oxygen?</h3>
+                            <small>Easy · 5 hours ago</small>
+                        </div>
+                        <button class="delete-button">×</button>
+                    </div>
+
+                    <div class="question-item">
+                        <div class="question-info">
+                            <span class="question-category">History</span>
+                            <h3>Who was the first person on the Moon?</h3>
+                            <small>Medium · Yesterday</small>
+                        </div>
+                        <button class="delete-button">×</button>
+                    </div>
+
+                    <div class="question-item">
+                        <div class="question-info">
+                            <span class="question-category">Geography</span>
+                            <h3>What is the largest ocean?</h3>
+                            <small>Easy · Yesterday</small>
+                        </div>
+                        <button class="delete-button">×</button>
+                    </div>
+
+                    <div class="question-item">
+                        <div class="question-info">
+                            <span class="question-category">Programming</span>
+                            <h3>Which language runs in a browser?</h3>
+                            <small>Medium · 2 days ago</small>
+                        </div>
+                        <button class="delete-button">×</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
+
