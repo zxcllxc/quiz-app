@@ -1,5 +1,6 @@
 const quizButtons = document.getElementById("quiz-buttons");
 const leaderboard = document.getElementById("leaderboard");
+const topPlayers = document.getElementById("top-players");
 
 const params = new URLSearchParams(window.location.search);
 let quizId = Number(params.get("quizId")) || 1;
@@ -12,7 +13,6 @@ function loadQuizzes() {
 
             quizzes.forEach(quiz => {
                 const button = document.createElement("button");
-
                 button.textContent = quiz.title;
 
                 if (quiz.id === quizId) {
@@ -39,6 +39,7 @@ function loadQuizzes() {
 
 function loadLeaderboard() {
     leaderboard.innerHTML = "<p>Loading...</p>";
+    topPlayers.innerHTML = "";
 
     fetch(`/api/quizzes/${quizId}/leaderboard`)
         .then(response => response.json())
@@ -50,13 +51,29 @@ function loadLeaderboard() {
                 return;
             }
 
-            results.forEach((result, index) => {
+            results.slice(0, 3).forEach((result, index) => {
+                const player = document.createElement("div");
+
+                player.className = "top-player";
+
+                player.innerHTML = `
+                    <div class="top-place">${index + 1} PLACE</div>
+                    <h3>${result.nickname}</h3>
+                    <div class="top-score">
+                        <strong>${result.score}</strong> / ${result.total}
+                    </div>
+                `;
+
+                topPlayers.appendChild(player);
+            });
+
+            results.slice(3).forEach((result, index) => {
                 const row = document.createElement("div");
 
                 row.className = "ranking-row";
 
                 row.innerHTML = `
-                    <div class="rank-number">${index + 1}</div>
+                    <div class="rank-number">${index + 4}</div>
                     <div class="player">${result.nickname}</div>
                     <div class="score">${result.score}/${result.total}</div>
                 `;
@@ -65,6 +82,7 @@ function loadLeaderboard() {
             });
         })
         .catch(() => {
+            topPlayers.innerHTML = "";
             leaderboard.innerHTML = "<p>No results yet</p>";
         });
 }
