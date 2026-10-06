@@ -3,130 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>QuizPulse — Test Your Knowledge</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="css/style.css">
-
-
+    <title>QuizPulse — Test Your Knowledge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-
 <header class="header">
     <div class="container nav">
         <a href="index.html" class="logo">Quiz<span>Pulse</span></a>
 
-    <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="leaderboard.html">Leaderboard</a>
-    </nav>
-</div>
-
-
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="leaderboard.html">Leaderboard</a>
+        </nav>
+    </div>
 </header>
 
 <main>
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    Online Quiz Platform
+                </div>
 
-<section class="hero">
-    <div class="container hero-content">
+                <h1>
+                    Test your
+                    <span>knowledge.</span>
+                </h1>
 
-        <div class="hero-text">
+                <p>
+                    Challenge yourself with quizzes across different topics.
+                    Choose a category, answer the questions and see how high
+                    you can climb on the leaderboard.
+                </p>
 
-            <div class="badge">
-                <span class="badge-dot"></span>
-                Online Quiz Platform
+                <div class="hero-buttons">
+                    <a href="#categories-section" class="hero-button">
+                        Start Quiz <span>→</span>
+                    </a>
+                    <a href="leaderboard.html" class="hero-button secondary">
+                        View Leaderboard
+                    </a>
+                </div>
             </div>
 
-            <h1>
-                Test your
-                <span>knowledge.</span>
-            </h1>
+            <div class="hero-card">
+                <div class="quiz-preview">
+                    <div class="quiz-preview-top">
+                        <span>Question 4</span>
+                        <span>4 / 10</span>
+                    </div>
 
-            <p>
-                Choose a topic and start a quiz.
-                See your result and compare your score with other players.
-            </p>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
 
-            <div class="hero-buttons">
+                    <h3>Which language is mainly used to style web pages?</h3>
+
+                    <div class="preview-option">
+                        <span>A</span>
+                        JavaScript
+                    </div>
+
+                    <div class="preview-option selected">
+                        <span>B</span>
+                        CSS
+                        <b>✓</b>
+                    </div>
+
+                    <div class="preview-option">
+                        <span>C</span>
+                        Python
+                    </div>
+
+                    <div class="preview-option">
+                        <span>D</span>
+                        SQL
+                    </div>
+
+                    <div class="preview-score">
+                        <span>Current score</span>
+                        <strong>3 / 4</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-heading">
+                <span>QUIZPULSE</span>
+                <p>Everything you need for a quick knowledge challenge.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <strong>10+</strong>
+                    <span>Available Quizzes</span>
+                </div>
+
+                <div class="stat-card">
+                    <strong>50+</strong>
+                    <span>Questions</span>
+                </div>
+
+                <div class="stat-card">
+                    <strong>4</strong>
+                    <span>Categories</span>
+                </div>
+
+                <div class="stat-card">
+                    <strong>∞</strong>
+                    <span>Attempts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories-section" id="categories-section">
+        <div class="container">
+            <div class="section-heading">
+                <span>CATEGORIES</span>
+                <h2>Choose a topic</h2>
+                <p>Pick a category and find a quiz that matches your interests.</p>
+            </div>
+
+            <div class="categories-grid" id="categories"></div>
+        </div>
+    </section>
+
+    <section class="how-section">
+        <div class="container">
+            <div class="section-heading">
+                <span>HOW IT WORKS</span>
+                <h2>Three steps. One challenge.</h2>
+                <p>Getting started is simple. Choose a quiz and see what you know.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h3>Choose a category</h3>
+                    <p>Select a topic that interests you from the available categories.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h3>Take the quiz</h3>
+                    <p>Answer the questions before the timer runs out and trust your knowledge.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h3>Check your score</h3>
+                    <p>See your result and compare your performance with other players.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-section">
+        <div class="container feature-content">
+            <div class="feature-text">
+                <span class="feature-label">COMPETE & IMPROVE</span>
+                <h2>How well do you really know your favorite topics?</h2>
+                <p>
+                    QuizPulse gives you a simple way to test your knowledge,
+                    discover new topics and challenge yourself with every quiz.
+                </p>
                 <a href="#categories-section" class="hero-button">
-                    Start Quiz <span>→</span>
+                    Explore Quizzes <span>→</span>
                 </a>
             </div>
 
-        </div>
-
-        <div class="hero-card">
-            <div class="quiz-preview">
-
-                <div class="quiz-preview-top">
-                    <span>Question 4</span>
-                    <span>4 / 10</span>
-                </div>
-
-                <div class="progress-bar">
-                    <div class="progress"></div>
-                </div>
-
-                <h3>Which language is mainly used to style web pages?</h3>
-
-                <div class="preview-option">
-                    <span>A</span>
-                    JavaScript
-                </div>
-
-                <div class="preview-option selected">
-                    <span>B</span>
-                    CSS
-                    <b>✓</b>
-                </div>
-
-                <div class="preview-option">
-                    <span>C</span>
-                    Python
-                </div>
-
-                <div class="preview-option">
-                    <span>D</span>
-                    SQL
-                </div>
-
+            <div class="feature-card">
+                <h3>Built for challenges</h3>
+                <p>
+                    Take quizzes, improve your knowledge and compete with
+                    other players on the leaderboard.
+                </p>
             </div>
         </div>
+    </section>
 
-    </div>
-</section>
+    <section class="cta-section">
+        <div class="container cta-content">
+            <span>READY?</span>
+            <h2>Put your knowledge<br>to the test.</h2>
+            <p>Choose a category and start your next challenge.</p>
 
-<section class="categories-section" id="categories-section">
-    <div class="container">
-
-        <div class="section-heading">
-            <span>CATEGORIES</span>
-            <h2>Choose a topic</h2>
-            <p>Try one of the available quiz categories.</p>
+            <a href="#categories-section" class="hero-button">
+                Start Quiz <span>→</span>
+            </a>
         </div>
-
-        <div class="categories-grid" id="categories"></div>
-
-    </div>
-</section>
-
-
+    </section>
 </main>
 
 <footer class="footer">
     <div class="container footer-content">
-        <div class="logo">Quiz<span>Pulse</span></div>
-        <p>Online quizzes for learning and fun.</p>
+        <div>
+            <div class="logo">Quiz<span>Pulse</span></div>
+            <p>Online quizzes for learning and fun.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="leaderboard.html">Leaderboard</a>
+        </div>
+
         <span class="copyright">© 2026 QuizPulse</span>
     </div>
 </footer>
 
 <script src="index.js"></script>
-
 </body>
 </html>

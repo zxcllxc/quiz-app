@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
 <header class="navbar">
     <div class="container navbar-content">
         <a href="index.html" class="logo">Quiz<span>Pulse</span></a>
@@ -27,7 +26,6 @@
 </header>
 
 <main>
-
     <section class="leaderboard-header">
         <div class="container">
             <span class="section-label">COMPETITION</span>
@@ -41,14 +39,34 @@
 
     <section class="quiz-selection">
         <div class="container">
+            <div class="quiz-selection-top">
+                <div>
+                    <span class="selection-label">QUIZZES</span>
+                    <h2>Choose a quiz</h2>
+                </div>
+                <span class="selection-hint">Select a quiz to view rankings</span>
+            </div>
+
             <div class="quiz-buttons" id="quiz-buttons"></div>
         </div>
     </section>
 
     <section class="ranking-section">
         <div class="container">
-            <div class="ranking-card">
+            <div class="ranking-title">
+                <div>
+                    <span class="section-label">RANKINGS</span>
+                    <h2>Top players</h2>
+                </div>
+                <span class="live-label">
+                    <span></span>
+                    Live rankings
+                </span>
+            </div>
 
+            <div class="top-players" id="top-players"></div>
+
+            <div class="ranking-card">
                 <div class="ranking-header">
                     <div>Place</div>
                     <div>Player</div>
@@ -56,24 +74,41 @@
                 </div>
 
                 <div id="leaderboard"></div>
-
             </div>
         </div>
     </section>
 
+    <section class="challenge-section">
+        <div class="container challenge-content">
+            <div>
+                <span class="section-label">YOUR TURN</span>
+                <h2>Think you can reach the top?</h2>
+                <p>Choose a quiz, test your knowledge and compete for the highest score.</p>
+            </div>
+
+            <a href="index.html" class="challenge-button">
+                Start a Quiz <span>→</span>
+            </a>
+        </div>
+    </section>
 </main>
 
 <footer class="footer">
     <div class="container footer-content">
-        <div class="logo">Quiz<span>Pulse</span></div>
+        <div>
+            <div class="logo">Quiz<span>Pulse</span></div>
+            <p>Test your knowledge. Challenge yourself.</p>
+        </div>
 
-        <p>Test your knowledge. Challenge yourself.</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="leaderboard.html">Leaderboard</a>
+        </div>
 
         <span>© 2026 QuizPulse</span>
     </div>
 </footer>
 
 <script src="js/leaderboard.js"></script>
-
 </body>
 </html>
