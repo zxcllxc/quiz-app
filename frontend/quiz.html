@@ -11,132 +11,70 @@
 <body>
 
     <header class="header">
-
-        <a href="index.html" class="logo">
-            QuizPulse
-        </a>
+        <a href="index.html" class="logo">QuizPulse</a>
 
         <div class="quiz-info">
             <span>Question</span>
             <strong id="questionNumber">1 / 0</strong>
         </div>
-
     </header>
 
     <main class="main">
 
-        <!-- Start screen -->
-
         <div class="quiz-card" id="startCard">
 
             <div class="top-info">
-                <span class="category" id="quizTitle">
-                    Quiz
-                </span>
+                <span class="category" id="quizTitle">Quiz</span>
             </div>
 
-            <h1>
-                Enter your name
-            </h1>
+            <h1>Enter your name</h1>
 
-            <input
-                type="text"
-                id="nicknameInput"
-                placeholder="Your name"
-                autocomplete="off"
-            >
+            <input type="text" id="nicknameInput" placeholder="Your name" autocomplete="off">
 
             <div class="bottom">
-
-                <span class="selected-info">
-                    Your name will be used for the result
-                </span>
-
-                <button class="next-button" id="startButton">
-                    Start →
-                </button>
-
+                <span class="selected-info">Your name will be used for the result</span>
+                <button class="next-button" id="startButton">Start →</button>
             </div>
 
         </div>
 
-
-        <!-- Quiz -->
-
         <div class="quiz-card hidden" id="quizCard">
 
             <div class="top-info">
-
-                <span class="category" id="quizCategory">
-                    Quiz
-                </span>
+                <span class="category" id="quizCategory">Quiz</span>
 
                 <div class="timer">
                     <span>Time</span>
                     <strong id="timer">00:00</strong>
                 </div>
-
             </div>
 
-            <h1 id="question">
-                Loading...
-            </h1>
+            <h1 id="question">Loading...</h1>
 
             <div class="answers" id="answers"></div>
 
             <div class="bottom">
-
-                <span class="selected-info" id="selectedInfo">
-                    Choose an answer
-                </span>
-
-                <button class="next-button" id="nextButton" disabled>
-                    Next →
-                </button>
-
+                <span class="selected-info" id="selectedInfo">Choose an answer</span>
+                <button class="next-button" id="nextButton" disabled>Next →</button>
             </div>
 
         </div>
 
-
-        <!-- Result -->
-
         <div class="result-card hidden" id="result">
 
-            <div class="result-icon">
-                ✓
-            </div>
+            <div class="result-icon">✓</div>
 
-            <h2>
-                Quiz completed!
-            </h2>
+            <h2>Quiz completed!</h2>
 
-            <p>
-                Your result
-            </p>
+            <p>Your result</p>
 
-            <strong class="result-score" id="resultScore">
-                0 / 0
-            </strong>
+            <strong class="result-score" id="resultScore">0 / 0</strong>
 
             <div id="resultDetails"></div>
 
             <div class="bottom">
-
-                <button
-                    class="restart-button"
-                    id="leaderboardButton"
-                >
-                    Leaderboard
-                </button>
-
-                <button
-                    class="restart-button"
-                    id="homeButton"
-                >
-                    Home
-                </button>
-
+                <button class="restart-button" id="leaderboardButton">Leaderboard</button>
+                <button class="restart-button" id="homeButton">Home</button>
             </div>
 
         </div>
