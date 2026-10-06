@@ -25,7 +25,6 @@
 
     <main class="main">
 
-        <!-- Start screen -->
 
         <div class="quiz-card" id="startCard">
 
@@ -39,12 +38,7 @@
                 Enter your name
             </h1>
 
-            <input
-                type="text"
-                id="nicknameInput"
-                placeholder="Your name"
-                autocomplete="off"
-            >
+            <input type="text" id="nicknameInput" placeholder="Your name" autocomplete="off" maxlength="20">
 
             <div class="bottom">
 
@@ -60,8 +54,6 @@
 
         </div>
 
-
-        <!-- Quiz -->
 
         <div class="quiz-card hidden" id="quizCard">
 
@@ -99,7 +91,6 @@
         </div>
 
 
-        <!-- Result -->
 
         <div class="result-card hidden" id="result">
 
@@ -123,17 +114,11 @@
 
             <div class="bottom">
 
-                <button
-                    class="restart-button"
-                    id="leaderboardButton"
-                >
+                <button class="restart-button" id="leaderboardButton">
                     Leaderboard
                 </button>
 
-                <button
-                    class="restart-button"
-                    id="homeButton"
-                >
+                <button class="restart-button" id="homeButton">
                     Home
                 </button>
 
