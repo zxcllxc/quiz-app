@@ -1,268 +1,212 @@
-const questions = [
-    {
-        question: "Which language is mainly used to style web pages?",
+const id = new URLSearchParams(window.location.search).get("id");
 
-        answers: [
-            "HTML",
-            "CSS",
-            "Python",
-            "SQL"
-        ]
-    },
+let quiz;
+let currentQuestion = 0;
+let answers = [];
+let selectedOption = null;
+let timeLeft = 0;
+let timer;
+let nickname = "";
 
-    {
-        question: "Which language adds interactivity to web pages?",
+const startCard = document.getElementById("startCard");
+const quizCard = document.getElementById("quizCard");
+const result = document.getElementById("result");
 
-        answers: [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "SQL"
-        ]
-    },
+const quizTitle = document.getElementById("quizTitle");
+const nicknameInput = document.getElementById("nicknameInput");
+const startButton = document.getElementById("startButton");
 
-    {
-        question: "Which technology is used to store data?",
+const question = document.getElementById("question");
+const answersBox = document.getElementById("answers");
+const questionNumber = document.getElementById("questionNumber");
 
-        answers: [
-            "HTML",
-            "CSS",
-            "PostgreSQL",
-            "Figma"
-        ]
+const timerElement = document.getElementById("timer");
+const nextButton = document.getElementById("nextButton");
+const selectedInfo = document.getElementById("selectedInfo");
+
+const resultScore = document.getElementById("resultScore");
+const resultDetails = document.getElementById("resultDetails");
+
+const leaderboardButton = document.getElementById("leaderboardButton");
+const homeButton = document.getElementById("homeButton");
+
+
+async function loadQuiz() {
+    const response = await fetch(`/api/quizzes/${id}`);
+    quiz = await response.json();
+
+    quizTitle.textContent = quiz.title;
+    document.title = quiz.title;
+
+    questionNumber.textContent = `1 / ${quiz.questions.length}`;
+    timeLeft = quiz.timeLimitSec;
+}
+
+
+function startQuiz() {
+    nickname = nicknameInput.value.trim();
+
+    if (!nickname) {
+        nicknameInput.focus();
+        return;
     }
-];
+
+    startCard.classList.add("hidden");
+    quizCard.classList.remove("hidden");
+
+    currentQuestion = 0;
+    answers = [];
+
+    showQuestion();
+    startTimer();
+}
 
 
-let currentQuestionIndex = 0;
+function showQuestion() {
+    const q = quiz.questions[currentQuestion];
 
-let selectedAnswers = [];
-
-let selectedAnswer = null;
-
-
-// HTML elements
-
-const questionElement =
-    document.getElementById("question");
-
-const answersElement =
-    document.getElementById("answers");
-
-const nextButton =
-    document.getElementById("nextBtn");
-
-const questionNumber =
-    document.getElementById("questionNumber");
-
-const totalQuestions =
-    document.getElementById("totalQuestions");
-
-const selectedInfo =
-    document.getElementById("selectedInfo");
-
-const quizCard =
-    document.querySelector(".quiz-card");
-
-const resultCard =
-    document.getElementById("result");
-
-const resultAnswers =
-    document.getElementById("resultAnswers");
-
-const restartButton =
-    document.getElementById("restartBtn");
-
-
-// Total questions
-
-totalQuestions.textContent = questions.length;
-
-
-// Show question
-
-function renderQuestion() {
-
-    const question =
-        questions[currentQuestionIndex];
-
-
-    questionElement.textContent =
-        question.question;
-
+    question.textContent = q.text;
 
     questionNumber.textContent =
-        currentQuestionIndex + 1;
+        `${currentQuestion + 1} / ${quiz.questions.length}`;
 
+    answersBox.innerHTML = "";
+    selectedOption = null;
 
-    answersElement.innerHTML = "";
+    nextButton.disabled = true;
+    selectedInfo.textContent = "Choose an answer";
 
-
-    selectedAnswer =
-        selectedAnswers[currentQuestionIndex] ?? null;
-
-
-    if (selectedAnswer !== null) {
-
-        selectedInfo.textContent =
-            `Selected answer: ${selectedAnswer + 1}`;
-
-        nextButton.disabled = false;
-
-    } else {
-
-        selectedInfo.textContent =
-            "Choose an answer";
-
-        nextButton.disabled = true;
-    }
-
-
-    question.answers.forEach(function (answer, index) {
-
-        const button =
-            document.createElement("button");
-
+    q.options.forEach((option, index) => {
+        const button = document.createElement("button");
 
         button.className = "answer";
+        button.textContent = `${index + 1}. ${option}`;
 
+        button.onclick = () => {
+            selectedOption = index;
 
-        button.innerHTML = `
-            <span class="answer-number">
-                ${index + 1}
-            </span>
-
-            <span>
-                ${answer}
-            </span>
-        `;
-
-
-        // Если ответ уже был выбран
-
-        if (selectedAnswer === index) {
-
-            button.classList.add("selected");
-        }
-
-
-        // Click answer
-
-        button.addEventListener("click", function () {
-
-            const allAnswers =
-                document.querySelectorAll(".answer");
-
-
-            allAnswers.forEach(function (item) {
-
-                item.classList.remove("selected");
+            document.querySelectorAll(".answer").forEach(button => {
+                button.classList.remove("selected");
             });
 
-
             button.classList.add("selected");
 
-
-            selectedAnswer = index;
-
-
-            selectedAnswers[currentQuestionIndex] =
-                index;
-
-
-            selectedInfo.textContent =
-                `Selected answer: ${index + 1}`;
-
-
+            selectedInfo.textContent = "Answer selected";
             nextButton.disabled = false;
+        };
 
-
-            console.log(
-                "Selected answer:",
-                index + 1
-            );
-
-
-            console.log(
-                "Answers array:",
-                selectedAnswers
-            );
-        });
-
-
-        answersElement.appendChild(button);
+        answersBox.appendChild(button);
     });
 }
 
 
-// Next button
+function saveAnswer() {
+    const q = quiz.questions[currentQuestion];
 
-nextButton.addEventListener("click", function () {
-
-    if (selectedAnswer === null) {
-        return;
-    }
-
-
-    if (currentQuestionIndex < questions.length - 1) {
-
-        currentQuestionIndex++;
-
-        renderQuestion();
-
-    } else {
-
-        showResult();
-    }
-
-});
-
-
-// Result
-
-function showResult() {
-
-    quizCard.classList.add("hidden");
-
-    resultCard.classList.remove("hidden");
-
-
-    resultAnswers.textContent =
-        selectedAnswers.length;
-
-
-    console.log(
-        "Quiz finished!"
-    );
-
-
-    console.log(
-        "Final answers:",
-        selectedAnswers
-    );
+    answers.push({
+        questionId: q.id,
+        optionIndex: selectedOption
+    });
 }
 
 
-// Restart
+function nextQuestion() {
+    if (selectedOption === null) {
+        return;
+    }
 
-restartButton.addEventListener("click", function () {
+    saveAnswer();
 
-    currentQuestionIndex = 0;
-
-    selectedAnswers = [];
-
-    selectedAnswer = null;
-
-
-    quizCard.classList.remove("hidden");
-
-    resultCard.classList.add("hidden");
-
-
-    renderQuestion();
-});
+    if (currentQuestion < quiz.questions.length - 1) {
+        currentQuestion++;
+        showQuestion();
+    } else {
+        finishQuiz();
+    }
+}
 
 
-// Start quiz
+function startTimer() {
+    timer = setInterval(() => {
+        timeLeft--;
 
-renderQuestion();
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+
+        timerElement.textContent =
+            `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+
+        if (timeLeft <= 0) {
+            finishQuiz();
+        }
+    }, 1000);
+}
+
+
+async function finishQuiz() {
+    clearInterval(timer);
+
+    const response = await fetch(`/api/quizzes/${id}/submit`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nickname: nickname,
+            answers: answers
+        })
+    });
+
+    const data = await response.json();
+
+    showResult(data);
+}
+
+
+function showResult(data) {
+    quizCard.classList.add("hidden");
+    result.classList.remove("hidden");
+
+    resultScore.textContent = `${data.score} / ${data.total}`;
+
+    resultDetails.innerHTML = "";
+
+    data.review.forEach((item, index) => {
+        const q = quiz.questions.find(q => q.id === item.questionId);
+
+        const div = document.createElement("div");
+
+        div.innerHTML = `
+            <p><strong>${index + 1}. ${q.text}</strong></p>
+            <p>Your answer: ${
+                item.yourIndex === null
+                    ? "No answer"
+                    : q.options[item.yourIndex]
+            }</p>
+            <p>Correct answer: ${q.options[item.correctIndex]}</p>
+        `;
+
+        resultDetails.appendChild(div);
+    });
+}
+
+
+startButton.onclick = startQuiz;
+nextButton.onclick = nextQuestion;
+
+nicknameInput.onkeydown = event => {
+    if (event.key === "Enter") {
+        startQuiz();
+    }
+};
+
+leaderboardButton.onclick = () => {
+    window.location.href = `leaderboard.html?quizId=${id}`;
+};
+
+homeButton.onclick = () => {
+    window.location.href = "index.html";
+};
+
+
+loadQuiz();
